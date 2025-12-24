@@ -116,7 +116,7 @@ export function Pricing() {
     className: 'text-red-400 text-base font-medium'
   }];
   return <Layout>
-      <Section title="Các Gói Báo Giá" subtitle="Giá cả minh bạch cho mọi giai đoạn phát triển.">
+      <Section title="Các Gói Báo Giá" subtitle="Chi phí phát triển phầm mền.">
         {/* Pricing Cards */}
         <div id="pricing-tiers" className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24 scroll-mt-24">
           {tiers.map(tier => <Card key={tier.name} className={`flex flex-col ${tier.color} relative`}>
@@ -148,9 +148,9 @@ export function Pricing() {
                 >
                   Chọn {tier.name}
                 </Button>
-                <div className="mt-4 text-center text-xs text-gray-500">
+                {/* <div className="mt-4 text-center text-xs text-gray-500">
                   Trả góp 12 tháng có sẵn
-                </div>
+                </div> */}
               </CardContent>
             </Card>)}
         </div>
@@ -174,16 +174,16 @@ export function Pricing() {
                 </thead>
                 <tbody className="divide-y divide-slate-800 bg-black/50">
                   {/* Trả góp */}
-                  <tr className="bg-slate-900/30">
+                  {/* <tr className="bg-slate-900/30">
                     <td colSpan={4} className="py-4 px-6 font-bold text-lg text-[#F9D649]">
                       Trả góp trong vòng 12 tháng
                     </td>
-                  </tr>
+                  </tr> */}
                   <tr className="hover:bg-slate-900/50 transition-colors">
-                    <td className="py-5 px-6 text-slate-300 font-medium border-r border-slate-700">Chi phí hàng tháng</td>
-                    <td className="py-5 px-6 text-slate-300 text-center border-r border-slate-700">$45,000/tháng</td>
-                    <td className="py-5 px-6 text-yellow-500 text-center font-medium border-r border-slate-700">$111,500/tháng</td>
-                    <td className="py-5 px-6 text-red-400 text-center font-medium">$187,500/tháng</td>
+                    <td className="py-5 px-6 text-slate-300 font-medium border-r border-slate-700">Chi phí phát triển phần mềm</td>
+                    <td className="py-5 px-6 text-slate-300 text-center text-[20px] border-r border-slate-700">$45,000/tháng</td>
+                    <td className="py-5 px-6 text-yellow-500 text-[20px] text-center font-medium border-r border-slate-700">$111,500/tháng</td>
+                    <td className="py-5 px-6 text-red-400 text-[20px] text-center font-medium">$187,500/tháng</td>
                   </tr>
 
                   {/* Hạ tầng */}
@@ -253,16 +253,16 @@ export function Pricing() {
                   </tr>
 
                   {/* Chi phí Vận hành */}
-                  <tr className="bg-slate-900/30">
+                  {/* <tr className="bg-slate-900/30">
                     <td colSpan={4} className="py-4 px-6 font-bold text-lg text-[#F9D649]">
                       Chi phí Vận hành (Tháng)
                     </td>
-                  </tr>
+                  </tr> */}
                   <tr className="hover:bg-slate-900/50 transition-colors">
                     <td className="py-5 px-6 text-slate-300 font-medium border-r border-slate-700">Chi phí hàng tháng</td>
-                    <td className="py-5 px-6 text-slate-300 text-center font-semibold border-r border-slate-700">$6,000</td>
-                    <td className="py-5 px-6 text-yellow-500 text-center font-semibold border-r border-slate-700">$12,000</td>
-                    <td className="py-5 px-6 text-red-400 text-center font-semibold">$35,000</td>
+                    <td className="py-5 px-6 text-slate-300 text-center text-[20px] font-semibold border-r border-slate-700">$6,000/tháng</td>
+                    <td className="py-5 px-6 text-yellow-500 text-center text-[20px] font-semibold border-r border-slate-700">$12,000/tháng</td>
+                    <td className="py-5 px-6 text-red-400 text-center text-[20px] font-semibold">$35,000/tháng</td>
                   </tr>
 
                   {/* Vận hành */}
@@ -372,16 +372,16 @@ export function Pricing() {
                   </tr>
 
                   {/* Chi phí Phát triển */}
-                  <tr className="bg-slate-900/30">
+                  {/* <tr className="bg-slate-900/30">
                     <td colSpan={4} className="py-4 px-6 font-bold text-lg text-[#F9D649]">
                       Chi phí Phát triển (Tháng)
                     </td>
-                  </tr>
+                  </tr> */}
                   <tr className="hover:bg-slate-900/50 transition-colors">
                     <td className="py-5 px-6 text-slate-300 font-medium border-r border-slate-700">Chi phí hàng tháng</td>
-                    <td className="py-5 px-6 text-slate-300 text-center font-semibold border-r border-slate-700">$28,000</td>
-                    <td className="py-5 px-6 text-yellow-500 text-center font-semibold border-r border-slate-700">$54,000</td>
-                    <td className="py-5 px-6 text-red-400 text-center font-semibold">$84,000</td>
+                    <td className="py-5 px-6 text-slate-300 text-center text-[20px] font-semibold border-r border-slate-700">$28,000/tháng</td>
+                    <td className="py-5 px-6 text-yellow-500 text-center text-[20px] font-semibold border-r border-slate-700">$54,000/tháng</td>
+                    <td className="py-5 px-6 text-red-400 text-center text-[20px] font-semibold">$84,000/tháng</td>
                   </tr>
 
                   {/* DAU */}
@@ -392,9 +392,9 @@ export function Pricing() {
                   </tr>
                   <tr className="hover:bg-slate-900/50 transition-colors">
                     <td className="py-5 px-6 text-slate-300 font-medium border-r border-slate-700">Số lượng người dùng</td>
-                    <td className="py-5 px-6 text-slate-300 text-center font-semibold border-r border-slate-700">&lt;10K</td>
-                    <td className="py-5 px-6 text-yellow-500 text-center font-semibold border-r border-slate-700">10K - 25K</td>
-                    <td className="py-5 px-6 text-red-400 text-center font-semibold">25K - 50K</td>
+                    <td className="py-5 px-6 text-slate-300 text-center text-[20px] font-semibold border-r border-slate-700">&lt;10K</td>
+                    <td className="py-5 px-6 text-yellow-500 text-center text-[20px] font-semibold border-r border-slate-700">10K - 25K</td>
+                    <td className="py-5 px-6 text-red-400 text-center text-[20px] font-semibold">25K - 50K</td>
                   </tr>
                 </tbody>
               </table>

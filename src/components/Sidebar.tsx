@@ -32,15 +32,15 @@ const navItems: NavItem[] = [
       { label: 'Chi phí Vận hành', sectionId: 'operational-costs' }
     ]
   },
-  {
-    label: 'Node',
-    path: '/node',
-    children: [
-      { label: 'Chiến lược Inverse ROI', sectionId: 'inverse-roi' },
-      { label: 'Cấu trúc Tier Node', sectionId: 'node-tiers' },
-      { label: 'Tính năng Node', sectionId: 'node-features' }
-    ]
-  },
+  // {
+  //   label: 'Node',
+  //   path: '/node',
+  //   children: [
+  //     { label: 'Chiến lược Inverse ROI', sectionId: 'inverse-roi' },
+  //     { label: 'Cấu trúc Tier Node', sectionId: 'node-tiers' },
+  //     { label: 'Tính năng Node', sectionId: 'node-features' }
+  //   ]
+  // },
   {
     label: 'Kế Hoạch Tài Chính',
     path: '/financial-plan',

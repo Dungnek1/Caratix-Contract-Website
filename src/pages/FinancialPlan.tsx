@@ -1,12 +1,11 @@
 import { Layout } from '../components/Layout';
 import { Section } from '../components/Section';
 import { DataTable } from '../components/DataTable';
-import { Badge } from '../components/ui/Badge';
 export function FinancialPlan() {
   const planT12 = [{
     category: 'Khởi tạo ban đầu',
-    work: ['UX/UI Start', 'Devops, duy trì sever, backend, frontend, làm tài liệu Marketing, làm docs, video'],
-    detail: '',
+    work: ['UX/UI Start', 'Tài liệu, tài nguyên'],
+    detail: ['','Devops, duy trì sever, backend, frontend, làm tài liệu Marketing '],
     cost: ['$5500', '$2500'],
     paymentDate: ['', 'Ngày 4 hàng tháng'],
     status: 'Chưa nhận',
@@ -21,12 +20,20 @@ export function FinancialPlan() {
     note: ''
   }, {
     category: 'Chi phí vận hành hàng tháng',
-    work: ['Các chức năng của dự án', 'Hỗ trợ chăm sóc KH'],
-    detail: ['Vận hành, quản lý các module bên trong dự án (DASHBOARD ADMIN)-> ICO, Staking, duy trì web admin', 'Chăm sóc khách hàng khi NẠP RÚT hoặc phát sinh lỗi, hỗ trợ tư vấn giải pháp cho dự án'],
-    cost: ['$3000', '$1500'],
-    paymentDate: ['15/12/2025', ''],
+    work: 'Các chức năng của dự án',
+    detail: 'Vận hành, quản lý các module bên trong dự án (DASHBOARD ADMIN)-> ICO, Staking, duy trì web admin',
+    cost: '$3000',
+    paymentDate: '15/12/2025',
     status: 'Chưa nhận',
-    note: ['', '']
+    note: '14 công nhân làm việc 8 tiếng'
+  }, {
+    category: 'Chi phí vận hành hàng tháng',
+    work: 'Hỗ trợ chăm sóc KH',
+    detail: 'Chăm sóc khách hàng khi NẠP RÚT hoặc phát sinh lỗi, hỗ trợ tư vấn giải pháp cho dự án',
+    cost: '$1500',
+    paymentDate: '',
+    status: 'Chưa nhận',
+    note: '4 công nhân làm việc 8 tiến'
   }, {
     category: 'Chi phí tài sản thiết bị',
     work: '2 Macbook',
@@ -42,7 +49,7 @@ export function FinancialPlan() {
     cost: '',
     paymentDate: '',
     status: 'Chưa nhận',
-    note: ''
+    note: 'Mới, chưa active'
   }];
   const planT1 = [{
     category: 'Chi phí tài nguyên hàng tháng',
@@ -67,7 +74,7 @@ export function FinancialPlan() {
     cost: ['3000 USD', '1500 USD'],
     paymentDate: ['15/01/2026', ''],
     status: 'Chưa nhận',
-    note: ['', '']
+    note: ['14 công nhân làm việc 8 tiếng', '4 công nhân làm việc 8 tiến']
   }];
   const columnsT12 = [{
     header: 'Tiêu đề',
@@ -110,7 +117,16 @@ export function FinancialPlan() {
   }, {
     header: 'Chi phí',
     accessorKey: 'cost' as const,
-    className: 'font-mono text-white text-base text-center font-semibold min-w-[120px]',
+    className: 'font-mono text-white text-base text-center font-semibold min-w-[120px] align-middle',
+    rowSpan: (_item: any, rowIndex: number) => {
+      // Gộp 2 hàng "Chi phí tài sản thiết bị" (index 4 và 5)
+      if (rowIndex === 4) return 2;
+      return undefined;
+    },
+    hideCell: (_item: any, rowIndex: number) => {
+      // Ẩn cell ở hàng "1 iPhone" (index 5)
+      return rowIndex === 5;
+    },
     cell: (item: any) => (
       <div className="space-y-2">
         {Array.isArray(item.cost) ? (
@@ -120,34 +136,32 @@ export function FinancialPlan() {
             </div>
           ))
         ) : (
-          <div>{item.cost}</div>
+          <div>{item.cost || '-'}</div>
         )}
       </div>
     )
   }, {
     header: 'Ngày thanh toán',
     accessorKey: 'paymentDate' as const,
-    className: 'text-gray-400 text-sm min-w-[140px]',
+    className: 'text-gray-400 text-sm min-w-[140px] align-middle',
+    rowSpan: (item: any, rowIndex: number) => {
+      // Gộp 2 hàng "Chi phí vận hành hàng tháng" ở tháng 12/2025 (index 2 và 3)
+      // Chỉ gộp nếu category là "Chi phí vận hành hàng tháng" và paymentDate là "15/12/2025"
+      if (rowIndex === 2 && item.category === 'Chi phí vận hành hàng tháng' && item.paymentDate === '15/12/2025') {
+        return 2;
+      }
+      return undefined;
+    },
+    hideCell: (item: any, rowIndex: number) => {
+      // Ẩn cell ở hàng thứ 2 của "Chi phí vận hành hàng tháng" (index 3)
+      if (rowIndex === 3 && item.category === 'Chi phí vận hành hàng tháng') {
+        return true;
+      }
+      return false;
+    },
     cell: (item: any) => (
-      <div className="space-y-2">
-        {Array.isArray(item.paymentDate) ? (
-          item.paymentDate.map((pd: string, idx: number) => (
-            <div key={idx} className="border-b border-gray-800 last:border-b-0 pb-2 last:pb-0">
-              {pd || '-'}
-            </div>
-          ))
-        ) : (
-          <div>{item.paymentDate || '-'}</div>
-        )}
-      </div>
+      <div>{item.paymentDate || '-'}</div>
     )
-  }, {
-    header: 'Trạng thái',
-    accessorKey: 'status' as const,
-    className: 'min-w-[120px] text-center',
-    cell: (item: any) => <Badge variant="secondary" className="text-xs text-center">
-          {item.status}
-        </Badge>
   }, {
     header: 'Ghi chú',
     accessorKey: 'note' as const,

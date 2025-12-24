@@ -16,7 +16,7 @@ export function Badge({
     warning: 'border-transparent bg-amber-500/15 text-amber-400 hover:bg-amber-500/25',
     destructive: 'border-transparent bg-red-500/15 text-red-400 hover:bg-red-500/25'
   };
-  return <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 ${variants[variant]} ${className}`} {...props}>
+  return <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold  text-[20px] transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 ${variants[variant]} ${className}`} {...props}>
       {children}
     </span>;
 }

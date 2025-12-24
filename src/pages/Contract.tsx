@@ -110,30 +110,47 @@ export function Contract() {
   const operationsColumns = [{
     header: 'STT',
     accessorKey: 'id' as const,
-    className: 'w-12 text-gray-500'
+    className: 'w-12 text-gray-500 align-top'
   }, {
     header: 'Nội dung',
     accessorKey: 'name' as const,
-    className: 'font-medium'
+    className: 'font-medium align-top'
   }, {
     header: 'Chi tiết',
     accessorKey: 'detail' as const,
-    className: 'text-gray-400 text-xs md:text-sm',
-    cell: (item: any) => (
+    className: 'text-gray-400 text-xs md:text-sm align-top',
+    cell: (row: any) => (
       <div className="space-y-1">
-        {Array.isArray(item.detail) ? (
-          item.detail.map((line: string, idx: number) => (
-            <div key={idx}>{line}</div>
+        {Array.isArray(row.detail) ? (
+          row.detail.map((line: string, idx: number) => (
+            <div key={idx} className="flex items-start">
+              <span className="text-white mr-2 mt-1">•</span>
+              <span>{line}</span>
+            </div>
           ))
         ) : (
-          <div>{item.detail}</div>
+          <div className="flex items-start">
+            <span className="text-white mr-2 mt-1">•</span>
+            <span>{row.detail}</span>
+          </div>
         )}
       </div>
     )
   }, {
     header: 'Chi phí',
     accessorKey: 'cost' as const,
-    cell: (item: any) => item.cost !== '—' ? <Badge variant="secondary">{item.cost}</Badge> : <span className="text-slate-600">—</span>
+    rowSpan: (_item: any, rowIndex: number) => (rowIndex === 0 ? 5 : undefined),
+    hideCell: (_item: any, rowIndex: number) => rowIndex > 0 && rowIndex < 5,
+    className: 'text-center align-middle',
+    cell: (row: any) => (
+      <div className="flex items-center text-[20px] justify-center h-full">
+        {row.cost !== '—' && row.cost !== 'chưa chốt' ? (
+          <Badge variant="secondary">{row.cost}</Badge>
+        ) : (
+          <span className="text-gray-400">{row.cost}</span>
+        )}
+      </div>
+    )
   }];
   return <Layout>
     <Section title="Caratix Contract" subtitle="Khung vận hành và thông số kỹ thuật.">
@@ -144,7 +161,7 @@ export function Contract() {
 
       <div id="operations-detail" className="mb-16 scroll-mt-24">
         <h3 className="text-2xl font-bold mb-6 text-[#F9D649]">
-          Bảng Vận hành Chi tiết
+          Bảng Vận hành dự án cơ bản
         </h3>
         <DataTable columns={operationsColumns} data={operationsData} description="Phân tích chi tiết các thành phần vận hành và chi phí liên quan." />
       </div>
