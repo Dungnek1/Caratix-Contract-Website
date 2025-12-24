@@ -50,6 +50,15 @@ const navItems: NavItem[] = [
     ]
   },
   {
+    label: 'Hình ảnh các dự án',
+    path: '/projects',
+    children: [
+      { label: '402zk', sectionId: 'project-402zk' },
+      { label: 'meta-alpha', sectionId: 'project-meta-alpha' },
+      { label: '5200ai', sectionId: 'project-5200ai' }
+    ]
+  },
+  {
     label: 'Tài Liệu',
     path: '/docs',
     children: [
