@@ -57,38 +57,38 @@ export function Node() {
   }, {
     header: 'Mô tả',
     accessorKey: 'desc' as const,
-    className: 'text-slate-400 text-xs'
+    className: 'text-gray-400 text-xs'
   }];
   return <Layout>
       <Section title="Node & Tokenomics" subtitle="Mô hình Inverse ROI: Thưởng cho người tin tưởng sớm.">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+        <div id="inverse-roi" className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16 scroll-mt-24">
           <div className="space-y-6">
-            <h3 className="text-2xl font-bold">Chiến lược Inverse ROI</h3>
-            <p className="text-slate-400 leading-relaxed">
+            <h3 className="text-2xl font-bold text-[#F9D649]">Chiến lược Inverse ROI</h3>
+            <p className="text-gray-400 leading-relaxed">
               Khác với các mô hình truyền thống, Caratix thưởng lớn nhất cho
               những người tham gia sớm nhất với hệ số cao nhất. Khi mạng lưới
               phát triển, hệ số ROI giảm dần, chuyển giá trị từ phần thưởng lạm
               phát sang Real Yield (chia sẻ phí) và quyền lực Quản trị.
             </p>
             <div className="grid grid-cols-2 gap-4">
-              <Card className="bg-slate-900/50">
+              <Card className="bg-gray-900/50">
                 <CardContent className="p-4 flex flex-col items-center text-center">
                   <TrendingUp className="h-8 w-8 text-emerald-500 mb-2" />
                   <span className="font-bold text-lg">2.0x</span>
-                  <span className="text-xs text-slate-500">Hệ số Tối đa</span>
+                  <span className="text-xs text-gray-500">Hệ số Tối đa</span>
                 </CardContent>
               </Card>
-              <Card className="bg-slate-900/50">
+              <Card className="bg-gray-900/50">
                 <CardContent className="p-4 flex flex-col items-center text-center">
                   <Shield className="h-8 w-8 text-blue-500 mb-2" />
                   <span className="font-bold text-lg">250M</span>
-                  <span className="text-xs text-slate-500">CTX Đã Khóa</span>
+                  <span className="text-xs text-gray-500">CTX Đã Khóa</span>
                 </CardContent>
               </Card>
             </div>
           </div>
-          <div className="bg-slate-900/30 border border-slate-800 rounded-xl p-8 flex flex-col justify-center">
-            <h4 className="font-bold mb-4">Các Giai đoạn Đầu tư</h4>
+          <div className="bg-gray-900/30 border border-gray-800 rounded-xl p-8 flex flex-col justify-center">
+            <h4 className="font-bold mb-4 text-[#F9D649]">Các Giai đoạn Đầu tư</h4>
             <ul className="space-y-4">
               <li className="flex gap-4">
                 <div className="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-500 flex items-center justify-center font-bold text-sm">
@@ -98,7 +98,7 @@ export function Node() {
                   <h5 className="font-semibold text-emerald-400">
                     Người Tiên phong (Tier 1)
                   </h5>
-                  <p className="text-sm text-slate-400">
+                  <p className="text-sm text-gray-400">
                     Chi phí thấp, ROI tối đa. Tạo Alpha.
                   </p>
                 </div>
@@ -111,7 +111,7 @@ export function Node() {
                   <h5 className="font-semibold text-blue-400">
                     Đối tác Chiến lược (Tier 2-3)
                   </h5>
-                  <p className="text-sm text-slate-400">
+                  <p className="text-sm text-gray-400">
                     ROI cân bằng + Quyền lực Quản trị.
                   </p>
                 </div>
@@ -124,7 +124,7 @@ export function Node() {
                   <h5 className="font-semibold text-purple-400">
                     Tổ chức (Tier 4)
                   </h5>
-                  <p className="text-sm text-slate-400">
+                  <p className="text-sm text-gray-400">
                     Kiểm soát, Quyền Veto, Chia sẻ Phí.
                   </p>
                 </div>
@@ -133,35 +133,35 @@ export function Node() {
           </div>
         </div>
 
-        <div className="mb-12">
-          <h3 className="text-2xl font-bold mb-6">Cấu trúc Tier Node</h3>
+        <div id="node-tiers" className="mb-12 scroll-mt-24">
+          <h3 className="text-2xl font-bold mb-6 text-[#F9D649]">Cấu trúc Tier Node</h3>
           <DataTable columns={nodeColumns} data={nodeTiers} />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div id="node-features" className="grid grid-cols-1 md:grid-cols-3 gap-6 scroll-mt-24">
           <Card>
             <CardContent className="pt-6">
-              <Users className="h-6 w-6 text-slate-400 mb-4" />
-              <h4 className="font-bold mb-2">Cộng đồng Dẫn dắt</h4>
-              <p className="text-sm text-slate-400">
+              <Users className="h-6 w-6 text-gray-400 mb-4" />
+              <h4 className="font-bold mb-2 text-[#F9D649]">Cộng đồng Dẫn dắt</h4>
+              <p className="text-sm text-gray-400">
                 10,000 tổng số node có sẵn cho công chúng.
               </p>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="pt-6">
-              <Award className="h-6 w-6 text-slate-400 mb-4" />
-              <h4 className="font-bold mb-2">Real Yield</h4>
-              <p className="text-sm text-slate-400">
+              <Award className="h-6 w-6 text-gray-400 mb-4" />
+              <h4 className="font-bold mb-2 text-[#F9D649]">Real Yield</h4>
+              <p className="text-sm text-gray-400">
                 Node Tier 4 kiếm từ doanh thu nền tảng, không chỉ lạm phát.
               </p>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="pt-6">
-              <Shield className="h-6 w-6 text-slate-400 mb-4" />
-              <h4 className="font-bold mb-2">Bảo chứng Tài sản</h4>
-              <p className="text-sm text-slate-400">
+              <Shield className="h-6 w-6 text-gray-400 mb-4" />
+              <h4 className="font-bold mb-2 text-[#F9D649]">Bảo chứng Tài sản</h4>
+              <p className="text-sm text-gray-400">
                 Giá trị node được hỗ trợ bởi nền kinh tế kim cương cơ bản.
               </p>
             </CardContent>

@@ -28,7 +28,7 @@ export function Documentation() {
   }];
   return <Layout>
       <Section title="Tài Liệu" subtitle="Tài nguyên chỉ đọc cho nhà đầu tư và nhà phát triển.">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div id="docs-intro" className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto scroll-mt-24">
           {docs.map(doc => <Card key={doc.title} className="hover:border-slate-700 transition-colors">
               <CardHeader className="flex flex-row items-center gap-4 pb-2">
                 <div className="p-2 bg-slate-800 rounded-lg">
@@ -43,6 +43,16 @@ export function Documentation() {
                 </Button>
               </CardContent>
             </Card>)}
+        </div>
+        
+        <div id="docs-guide" className="mt-16 scroll-mt-24">
+          <h3 className="text-2xl font-bold mb-6 text-center">Hướng dẫn Sử dụng</h3>
+          <div className="max-w-3xl mx-auto text-gray-400 space-y-4">
+            <p>
+              Tài liệu này cung cấp thông tin chi tiết về Caratix Protocol, bao gồm kiến trúc kỹ thuật,
+              tokenomics, và các cảnh báo rủi ro quan trọng. Vui lòng đọc kỹ trước khi tham gia.
+            </p>
+          </div>
         </div>
       </Section>
     </Layout>;

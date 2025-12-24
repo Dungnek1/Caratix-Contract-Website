@@ -19,24 +19,29 @@ export function DataTable<T>({
 }: DataTableProps<T>) {
   return <div className="w-full my-8">
       {(title || description) && <div className="mb-4">
-          {title && <h3 className="text-lg font-semibold text-slate-100">{title}</h3>}
-          {description && <p className="text-sm text-slate-400">{description}</p>}
+          {title && <h3 className="text-lg font-semibold text-[#F9D649]">{title}</h3>}
+          {description && <p className="text-sm text-gray-400">{description}</p>}
         </div>}
-      <div className="rounded-md border border-slate-800 overflow-hidden">
+      <div className="rounded-md border border-gray-800 overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="w-full text-sm text-left">
-            <thead className="bg-slate-900 text-slate-400 border-b border-slate-800">
+          <table className="w-full text-base text-left">
+            <thead className="bg-gray-900 text-gray-300 border-b border-gray-800">
               <tr>
-                {columns.map((col, idx) => <th key={idx} className={`h-10 px-4 font-medium align-middle ${col.className || ''}`}>
+                {columns.map((col, idx) => <th key={idx} className={`h-14 px-6 font-semibold align-middle border-r border-gray-700 last:border-r-0 ${col.className || ''}`}>
                     {col.header}
                   </th>)}
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800 bg-slate-950/50">
-              {data.map((row, rowIdx) => <tr key={rowIdx} className="hover:bg-slate-900/50 transition-colors">
-                  {columns.map((col, colIdx) => <td key={colIdx} className={`p-4 align-middle ${col.className || ''}`}>
+            <tbody className="divide-y divide-gray-800 bg-black/50">
+              {data.map((row, rowIdx) => <tr key={rowIdx} className="hover:bg-gray-900/50 transition-colors">
+                  {columns.map((col, colIdx) => {
+                    const baseClassName = col.className || 'text-slate-300';
+                    // Remove border-r from className if it exists, we'll add it separately
+                    const classNameWithoutBorder = baseClassName.replace(/border-r[^ ]*/g, '').trim();
+                    return <td key={colIdx} className={`py-3 px-2 align-middle border-r border-gray-700 last:border-r-0 ${classNameWithoutBorder}`}>
                       {col.cell ? col.cell(row) : (row as any)[col.accessorKey as string]}
-                    </td>)}
+                    </td>;
+                  })}
                 </tr>)}
             </tbody>
           </table>

@@ -1,25 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 export function Footer() {
-  return <footer className="border-t border-slate-800 bg-slate-950 py-12 px-4">
+  return <footer className="border-t border-gray-800 bg-black py-12 px-4">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
         <div className="space-y-4">
           <div className="flex items-center space-x-2 font-bold text-xl tracking-tight">
-            <div className="w-6 h-6 bg-slate-800 rounded-full flex items-center justify-center text-slate-100 text-xs">
+            <div className="w-6 h-6 bg-gray-800 rounded-full flex items-center justify-center text-white text-xs">
               C
             </div>
             <span>Caratix</span>
           </div>
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-gray-400">
             Hạ tầng RWA & Bảo chứng Kim cương cấp Tổ chức.
           </p>
         </div>
 
         <div>
           <h4 className="font-semibold mb-4 text-sm">Nền Tảng</h4>
-          <ul className="space-y-2 text-sm text-slate-400">
+          <ul className="space-y-2 text-sm text-gray-400">
             <li>
-              <Link to="/contract" className="hover:text-slate-100">
+              <Link to="/contract" className="hover:text-white">
                 Hợp Đồng
               </Link>
             </li>
@@ -38,7 +38,7 @@ export function Footer() {
 
         <div>
           <h4 className="font-semibold mb-4 text-sm">Tài Nguyên</h4>
-          <ul className="space-y-2 text-sm text-slate-400">
+          <ul className="space-y-2 text-sm text-gray-400">
             <li>
               <Link to="/docs" className="hover:text-slate-100">
                 Tài Liệu
@@ -50,7 +50,7 @@ export function Footer() {
               </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-slate-100">
+              <a href="#" className="hover:text-white">
                 Whitepaper
               </a>
             </li>
@@ -59,26 +59,26 @@ export function Footer() {
 
         <div>
           <h4 className="font-semibold mb-4 text-sm">Pháp Lý</h4>
-          <ul className="space-y-2 text-sm text-slate-400">
+          <ul className="space-y-2 text-sm text-gray-400">
             <li>
-              <a href="#" className="hover:text-slate-100">
+              <a href="#" className="hover:text-white">
                 Chính Sách Bảo Mật
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-slate-100">
+              <a href="#" className="hover:text-white">
                 Điều Khoản Dịch Vụ
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-slate-100">
+              <a href="#" className="hover:text-white">
                 Cảnh Báo Rủi Ro
               </a>
             </li>
           </ul>
         </div>
       </div>
-      <div className="container mx-auto mt-12 pt-8 border-t border-slate-900 text-center text-xs text-slate-500">
+      <div className="container mx-auto mt-12 pt-8 border-t border-gray-900 text-center text-xs text-gray-500">
         © {new Date().getFullYear()} Caratix Protocol. Bảo lưu mọi quyền.
       </div>
     </footer>;
